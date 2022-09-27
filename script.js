@@ -8,5 +8,5 @@ function multiply(a,b){
     return a*b;
 }
 function divide (a,b){
-    return a/b;
+    return parseFloat((a/b).toFixed(1));
 }
