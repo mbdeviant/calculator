@@ -1,0 +1,19 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calc-body {
+    background-color: rgba(17, 17, 26, 0.1);
+    width: 450px;
+    height: 600px;
+    border: 0.5px thick gray;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+        rgba(17, 17, 26, 0.1) 0px 16px 56px,
+        rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
