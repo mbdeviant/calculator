@@ -10,10 +10,44 @@ body {
 
 #calc-body {
     background-color: rgba(17, 17, 26, 0.1);
+    display: flex;
     width: 450px;
     height: 600px;
     border: 0.5px thick gray;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
         rgba(17, 17, 26, 0.1) 0px 16px 56px,
         rgba(17, 17, 26, 0.1) 0px 24px 80px;
+
+}
+
+#numbers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.button {
+    border-radius: 8px;
+    padding: 2px;
+    text-align: center;
+    height: 65px;
+    width: 65px;
+    background-color: gray;
+    flex-grow: 1;
+}
+
+#result {
+    margin-top: 75px;
+    display: flex;
+    width: 450px;
+    height: 75px;
+    background-color: gray;
+}
+
+.num-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    width: 450px;
+    height: 70px;
 }
