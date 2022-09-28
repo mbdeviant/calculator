@@ -7,10 +7,16 @@ body {
     justify-content: center;
     align-items: center;
 }
+.results{
+    width: 450px;
+    height: auto;
+    background-color: gold;
+}
 
 .calculator-body {
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    padding: 20px;
     width: 450px;
     height: 550px;
     border: 0.5px solid gray;

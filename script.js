@@ -1,3 +1,12 @@
+const button = document.getElementById("button-one");
+button.addEventListener('click', ()=> console.log("patates"));
+const buttonTwo = document.getElementById("button-two");
+buttonTwo.addEventListener('click', ()=> console.log("patates?"));
+const buttonThree = document.getElementById("button-three");
+buttonThree.addEventListener('click', ()=> console.log("is this patateS?"));
+//this is how you add event listener to buttons
+//look for how to make a certain grid element bigger than others to make results section
+
 
 
 function add(a, b) {
