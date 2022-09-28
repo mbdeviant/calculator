@@ -13,7 +13,7 @@ body {
     display: flex;
     width: 450px;
     height: 600px;
-    border: 0.5px thick gray;
+    border: 1px solid gray;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
         rgba(17, 17, 26, 0.1) 0px 16px 56px,
         rgba(17, 17, 26, 0.1) 0px 24px 80px;
@@ -23,7 +23,9 @@ body {
 #numbers {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
 }
 
 .button {
@@ -37,19 +39,19 @@ body {
 }
 
 #result {
-    margin-top: 60px;
+    margin-top: 15px;
     display: flex;
     width: 450px;
-    height: 75px;
+    height: 100px;
     background-color: gray;
 }
 
 .btn-container {
     display: flex;
-    justify-content: space-between;
+
     gap: 8px;
-    width: 450px;
-    height: 70px;
+    width: 440px;
+    height: auto;
 }
 
 .button.clear {
