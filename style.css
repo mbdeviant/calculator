@@ -37,7 +37,7 @@ body {
 }
 
 #result {
-    margin-top: 75px;
+    margin-top: 60px;
     display: flex;
     width: 450px;
     height: 75px;
@@ -50,4 +50,8 @@ body {
     gap: 8px;
     width: 450px;
     height: 70px;
+}
+
+.button.clear {
+    flex-grow: 7;
 }
