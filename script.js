@@ -1,3 +1,7 @@
+
+
+
+
 function add(a, b) {
     return a + b;
 }
@@ -28,6 +32,5 @@ function operate(a, operator, b) {
         default:
             return "choose a valid operator"
     }
-
-
 }
+

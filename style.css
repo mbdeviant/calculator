@@ -38,7 +38,7 @@ body {
     flex-grow: 1;
 }
 
-#result {
+#results {
     margin-top: 15px;
     display: flex;
     width: 450px;
