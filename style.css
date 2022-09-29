@@ -48,12 +48,11 @@ body {
 
 .btn-container {
     display: flex;
-
     gap: 8px;
     width: 440px;
     height: auto;
 }
 
-.button.clear {
-    flex-grow: 7;
+.button.zero{
+    flex-grow: 4;
 }
