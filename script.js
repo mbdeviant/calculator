@@ -1,4 +1,5 @@
-
+//take the delete button to top right
+//take the equals next to zero
 
 
 const btnClear = document.getElementById("button-clear");
