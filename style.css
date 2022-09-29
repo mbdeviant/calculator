@@ -39,11 +39,15 @@ body {
 }
 
 #display {
-    margin-top: 15px;
     display: flex;
+    margin-top: 15px;
     width: 450px;
     height: 100px;
     background-color: gray;
+    font-size: 75px;
+    font-weight: bold;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .btn-container {
@@ -53,6 +57,6 @@ body {
     height: auto;
 }
 
-.button.zero{
+.button.zero {
     flex-grow: 4;
 }
