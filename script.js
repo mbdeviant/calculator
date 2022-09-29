@@ -1,10 +1,10 @@
 const btnTest = document.getElementById("button-sign");
 const txtTest = document.getElementById("display");
-btnTest.addEventListener('click', ()=> txtTest.textContent="i like potatoes");
+btnTest.addEventListener('click', ()=> txtTest.textContent=" ");
 const display = document.querySelectorAll("button");
 display.forEach(function(i){
-    i.addEventListener('click', (e)=>{
-        txtTest.textContent = i.innerHTML;
+    i.addEventListener('click', ()=>{
+        txtTest.textContent += i.innerHTML;
     });
 });
 
@@ -20,7 +20,7 @@ function multiply(a, b) {
 function divide(a, b) {
     return parseFloat((a / b).toFixed(1));
 }
-
+const values = {};
 function operate(a, operator, b) {
     a = Number(a);
     b = Number(b);
