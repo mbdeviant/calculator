@@ -1,19 +1,12 @@
-//take the delete button to top right
-//take the equals next to zero
-
-
-const btnClear = document.getElementById("button-clear");
-btnClear.addEventListener('click',()=> console.clear());
-const btnOne = document.getElementById("button-one");
-btnOne.addEventListener('click', ()=> console.log("i like them potatoes too"));
-const btnSeven = document.getElementById("button-seven");
-btnSeven.addEventListener('click',()=> console.log("patates"));
-
-
-
-
-
-
+const btnTest = document.getElementById("button-sign");
+const txtTest = document.getElementById("display");
+btnTest.addEventListener('click', ()=> txtTest.textContent="i like potatoes");
+const display = document.querySelectorAll("button");
+display.forEach(function(i){
+    i.addEventListener('click', (e)=>{
+        txtTest.textContent = i.innerHTML;
+    });
+});
 
 function add(a, b) {
     return a + b;
