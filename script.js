@@ -1,11 +1,16 @@
-const button = document.getElementById("button-one");
-button.addEventListener('click', ()=> console.log("patates"));
-const buttonTwo = document.getElementById("button-two");
-buttonTwo.addEventListener('click', ()=> console.log("patates?"));
-const buttonThree = document.getElementById("button-three");
-buttonThree.addEventListener('click', ()=> console.log("is this patateS?"));
-//this is how you add event listener to buttons
-//look for how to make a certain grid element bigger than others to make results section
+
+
+
+const btnClear = document.getElementById("button-clear");
+btnClear.addEventListener('click',()=> console.clear());
+const btnOne = document.getElementById("button-one");
+btnOne.addEventListener('click', ()=> console.log("i like them potatoes too"));
+const btnSeven = document.getElementById("button-seven");
+btnSeven.addEventListener('click',()=> console.log("patates"));
+
+
+
+
 
 
 
@@ -40,4 +45,3 @@ function operate(a, operator, b) {
             return "choose a valid operator"
     }
 }
-
