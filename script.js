@@ -1,16 +1,17 @@
 const display = document.getElementById("display");
+const btnUndo = document.getElementById("undo");
 const allButtons = document.querySelectorAll('button');
 allButtons.forEach(function (btnClick) {
     btnClick.addEventListener('click', () => {
-        console.log(btnClick.value);
         display.textContent += btnClick.value;
-        if (display.textContent.length >= 10){
-            display.textContent = display.textContent.slice(0,10);
+        if (display.textContent.length >= 10) {
+            display.textContent = display.textContent.slice(0, 10);
         }
-
     });
 });
-
+btnUndo.addEventListener('click', () => {
+    display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+});
 
 function add(a, b) {
     return a + b;
