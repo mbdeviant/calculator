@@ -1,11 +1,8 @@
-const btnTest = document.getElementById("button-sign");
-const txtTest = document.getElementById("display");
-btnTest.addEventListener('click', ()=> txtTest.textContent=" ");
-const display = document.querySelectorAll("button");
-display.forEach(function(i){
-    i.addEventListener('click', ()=>{
-        txtTest.textContent += i.innerHTML;
-    });
+
+const allButtons = document.querySelectorAll('button');
+allButtons.forEach(function(btnClick){
+    btnClick.addEventListener('click', () => console.log(btnClick.value));
+
 });
 
 function add(a, b) {
