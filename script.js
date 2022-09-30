@@ -1,9 +1,16 @@
-
+const display = document.getElementById("display");
 const allButtons = document.querySelectorAll('button');
-allButtons.forEach(function(btnClick){
-    btnClick.addEventListener('click', () => console.log(btnClick.value));
+allButtons.forEach(function (btnClick) {
+    btnClick.addEventListener('click', () => {
+        console.log(btnClick.value);
+        display.textContent += btnClick.value;
+        if (display.textContent.length >= 10){
+            display.textContent = display.textContent.slice(0,10);
+        }
 
+    });
 });
+
 
 function add(a, b) {
     return a + b;
@@ -17,7 +24,6 @@ function multiply(a, b) {
 function divide(a, b) {
     return parseFloat((a / b).toFixed(1));
 }
-const values = {};
 function operate(a, operator, b) {
     a = Number(a);
     b = Number(b);
@@ -30,7 +36,7 @@ function operate(a, operator, b) {
             return multiply(a, b);
         case '÷':
             if (a == 0) return b;
-            if (b == 0) return "Cannot divide by zero";
+            if (b == 0) return "don't";
             return divide(a, b);
         default:
             return "choose a valid operator"
