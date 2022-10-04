@@ -15,12 +15,6 @@ btnUndo.addEventListener('click', () => {
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
 
-const inputs ={
-    displayValue: '0',
-}
-
-btnTest.addEventListener('click',()=> inputs.displayValue = "patates");
-
 
 function add(a, b) {
     return a + b;
