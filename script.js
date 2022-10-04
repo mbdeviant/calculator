@@ -16,10 +16,12 @@ btnUndo.addEventListener('click', () => {
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
 btnAdd.addEventListener('click',()=> {
-    const value = parseInt(display.textContent.valueOf());
+    const value = parseInt(display.textContent.valueOf()); 
     console.log(add(value,12));
 });
-
+//create an object and store display value in the object
+//call the proper function on click
+//return the values on equals button click
 
 
 
