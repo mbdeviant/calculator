@@ -2,18 +2,25 @@ const display = document.getElementById("display");
 const btnUndo = document.getElementById("undo");
 const allButtons = document.querySelectorAll('button');
 const btnTest = document.getElementById("equals");
+const btnAdd = document.getElementById("add");
 allButtons.forEach(function (btnClick) {
     btnClick.addEventListener('click', () => {
-        display.textContent += btnClick.value;
         if (display.textContent.length >= 10) {
             display.textContent = display.textContent.slice(0, 10);
         }
+        display.textContent += btnClick.value;
        
     });
 });
 btnUndo.addEventListener('click', () => {
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
+btnAdd.addEventListener('click',()=> {
+    const value = parseInt(display.textContent.valueOf());
+    console.log(add(value,12));
+});
+
+
 
 
 function add(a, b) {
