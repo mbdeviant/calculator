@@ -26,9 +26,7 @@ btnAdd.addEventListener('click',()=> {
 btnEquals.addEventListener('click', ()=>{
     display.textContent = inputs.value + parseInt(display.textContent.valueOf());
 });
-//create an object and store display value in the object
-//call the proper function on click
-//return the values on equals button click
+
 
 
 
