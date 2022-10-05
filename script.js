@@ -19,7 +19,7 @@ const inputs = {
     value: null
 };
 btnAdd.addEventListener('click',()=> {
-    inputs.value = parseInt(display.textContent.valueOf());
+    if(display.textContent != "") inputs.value = parseInt(display.textContent.valueOf());
     console.log(inputs.value);
     display.textContent = "";
 });
