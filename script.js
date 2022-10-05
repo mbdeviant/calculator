@@ -3,6 +3,7 @@ const btnUndo = document.getElementById("undo");
 const allButtons = document.querySelectorAll('button');
 const btnEquals = document.getElementById("equals");
 const btnAdd = document.getElementById("add");
+const btnSubtract = document.getElementById("subtract");
 allButtons.forEach(function (btnClick) {
     btnClick.addEventListener('click', () => {
         if (display.textContent.length >= 10) {
@@ -19,12 +20,16 @@ const inputs = {
     value: null
 };
 btnAdd.addEventListener('click',()=> {
-    if(display.textContent != "") inputs.value = parseInt(display.textContent.valueOf());
+    if(display.textContent != "") inputs.value = parseFloat(display.textContent.valueOf());
     console.log(inputs.value);
     display.textContent = "";
 });
+btnSubtract.addEventListener('click', ()=> {
+    if(display.textContent != "") ;
+});
 btnEquals.addEventListener('click', ()=>{
-    display.textContent = inputs.value + parseInt(display.textContent.valueOf());
+    if(display.textContent != "") display.textContent = add(inputs.value,parseFloat(display.textContent.valueOf()));
+    
 });
 
 
