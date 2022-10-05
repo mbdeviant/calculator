@@ -20,15 +20,15 @@ const inputs = {
     value: null
 };
 btnAdd.addEventListener('click',()=> {
-    if(display.textContent != "") inputs.value = parseFloat(display.textContent.valueOf());
+    if(display.textContent != "") 
     console.log(inputs.value);
     display.textContent = "";
 });
 btnSubtract.addEventListener('click', ()=> {
-    if(display.textContent != "") ;
+   // if(display.textContent != "");
 });
 btnEquals.addEventListener('click', ()=>{
-    if(display.textContent != "") display.textContent = add(inputs.value,parseFloat(display.textContent.valueOf()));
+   // if(display.textContent != "") ;
     
 });
 
