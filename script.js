@@ -1,7 +1,7 @@
 const display = document.getElementById("display");
 const btnUndo = document.getElementById("undo");
 const allButtons = document.querySelectorAll('button');
-const btnTest = document.getElementById("equals");
+const btnEquals = document.getElementById("equals");
 const btnAdd = document.getElementById("add");
 allButtons.forEach(function (btnClick) {
     btnClick.addEventListener('click', () => {
@@ -15,9 +15,16 @@ allButtons.forEach(function (btnClick) {
 btnUndo.addEventListener('click', () => {
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
+const inputs = {
+    value: null
+};
 btnAdd.addEventListener('click',()=> {
-    const value = parseInt(display.textContent.valueOf()); 
-    console.log(add(value,12));
+    inputs.value = parseInt(display.textContent.valueOf());
+    console.log(inputs.value);
+    display.textContent = "";
+});
+btnEquals.addEventListener('click', ()=>{
+    display.textContent = inputs.value + parseInt(display.textContent.valueOf());
 });
 //create an object and store display value in the object
 //call the proper function on click
