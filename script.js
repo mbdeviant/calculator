@@ -3,7 +3,7 @@ const btnUndo = document.getElementById("undo");
 const numberButtons = document.querySelectorAll('button');
 const btnEquals = document.getElementById("equals");
 
-allButtons.forEach(function (btnClick) {
+numberButtons.forEach(function (btnClick) {
     btnClick.addEventListener('click', () => {
         if (display.textContent.length >= 10) {
             display.textContent = display.textContent.slice(0, 10);
@@ -22,18 +22,6 @@ const inputs = {
 };
 
 
-function add(a, b) {
-    return a + b;
-}
-function subtract(a, b) {
-    return a - b;
-}
-function multiply(a, b) {
-    return a * b;
-}
-function divide(a, b) {
-    return parseFloat((a / b).toFixed(1));
-}
 function operate(a, operator, b) {
     a = Number(a);
     b = Number(b);
@@ -49,4 +37,16 @@ function operate(a, operator, b) {
         default:
             return "choose a valid operator"
     }
+}
+function add(a, b) {
+    return a + b;
+}
+function subtract(a, b) {
+    return a - b;
+}
+function multiply(a, b) {
+    return a * b;
+}
+function divide(a, b) {
+    return parseFloat((a / b).toFixed(1));
 }
