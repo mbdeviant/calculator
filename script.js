@@ -20,15 +20,23 @@ const inputs = {
     value: null
 };
 btnAdd.addEventListener('click',()=> {
-    if(display.textContent != "") 
+    if(display.textContent != ""){
+        inputs.value += parseFloat(display.textContent.valueOf());
+    }
     console.log(inputs.value);
     display.textContent = "";
 });
 btnSubtract.addEventListener('click', ()=> {
-   // if(display.textContent != "");
+    if(display.textContent != ""){
+        inputs.value -= parseFloat(display.textContent.valueOf());
+    }
+    console.log(inputs.value);
+    display.textContent = "";
 });
 btnEquals.addEventListener('click', ()=>{
-   // if(display.textContent != "") ;
+    if(display.textContent != ""){
+        display.textContent = inputs.value - parseFloat(display.textContent.valueOf());
+    }
     
 });
 
