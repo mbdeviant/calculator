@@ -39,10 +39,11 @@ btnMultiply.addEventListener('click', ()=>{
         inputs.value *= parseFloat(display.textContent.valueOf());
     }
     console.log(inputs.value);
+    display.textContent = "";
 });
 btnEquals.addEventListener('click', ()=>{
     if(display.textContent != ""){
-        display.textContent = inputs.value - parseFloat(display.textContent.valueOf());
+        display.textContent = inputs.value + parseFloat(display.textContent.valueOf());
     }
     
 });
