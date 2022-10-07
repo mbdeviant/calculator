@@ -1,20 +1,24 @@
 const display = document.getElementById("display");
 const btnUndo = document.getElementById("undo");
 const numberButtons = document.querySelectorAll('button');
+const operatorButtons = document.querySelectorAll('[data-operator]');
 const btnEquals = document.getElementById("equals");
 
-numberButtons.forEach(function (btnClick) {
-    btnClick.addEventListener('click', () => {
-        if (display.textContent.length >= 10) {
-            display.textContent = display.textContent.slice(0, 10);
-        }
-        display.textContent += btnClick.value;
-       
-    });
-});
 btnUndo.addEventListener('click', () => {
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
+numberButtons.forEach(function (button) {
+    button.addEventListener('click', () => {
+        if (display.textContent.length >= 10) {
+            display.textContent = display.textContent.slice(0, 9);
+        }
+        display.textContent += button.value;
+    });
+});
+operatorButtons.forEach(function(button){
+    button.addEventListener('click', ()=> console.log("patates"));
+})
+
 const inputs = {
     firstOperand: null,
     operator: null,
