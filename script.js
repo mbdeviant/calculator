@@ -1,5 +1,6 @@
 const display = document.getElementById("display");
 const btnUndo = document.getElementById("undo");
+const btnDot = document.getElementById("dot");
 const numberButtons = document.querySelectorAll('button');
 const operatorButtons = document.querySelectorAll('[data-operator]');
 const btnEquals = document.getElementById("equals");
@@ -22,7 +23,7 @@ operatorButtons.forEach(function (button) {
     button.addEventListener('click', () => setOperation(button.textContent));
 });
 
-//can not divide, there's a bug
+//fix the bug with dot, do not let user use multiple dots
 
 
 let firstOperand = '';
