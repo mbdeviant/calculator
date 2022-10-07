@@ -45,8 +45,6 @@ function operate(a, operator, b) {
         case 'x':
             return multiply(a, b);
         case '÷':
-            if (a == 0) return b;
-            if (b == 0) return "don't";
             return divide(a, b);
         default:
             return "choose a valid operator"
