@@ -4,6 +4,7 @@ const allButtons = document.querySelectorAll('button');
 const btnEquals = document.getElementById("equals");
 const btnAdd = document.getElementById("add");
 const btnSubtract = document.getElementById("subtract");
+
 allButtons.forEach(function (btnClick) {
     btnClick.addEventListener('click', () => {
         if (display.textContent.length >= 10) {
@@ -33,6 +34,7 @@ btnSubtract.addEventListener('click', ()=> {
     console.log(inputs.value);
     display.textContent = "";
 });
+
 btnEquals.addEventListener('click', ()=>{
     if(display.textContent != ""){
         display.textContent = inputs.value - parseFloat(display.textContent.valueOf());
