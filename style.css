@@ -28,7 +28,8 @@ body {
     justify-content: center;
 }
 
-.button {
+.button,
+.operator {
     border-radius: 8px;
     padding: 2px;
     text-align: center;
