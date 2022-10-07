@@ -5,11 +5,13 @@ const operatorButtons = document.querySelectorAll('[data-operator]');
 const btnEquals = document.getElementById("equals");
 
 btnUndo.addEventListener('click', () => {
+    if (display.textContent == "don't") return display.textContent = "";
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
 btnEquals.addEventListener('click', calculate);
 numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
+        if (display.textContent == "don't") return;
         if (display.textContent.length >= 10) {
             display.textContent = display.textContent.slice(0, 9);
         }
@@ -29,6 +31,7 @@ let secondOperand = '';
 
 function setOperation(operator) {
     if (currentOperation != null) calculate();
+    if (display.textContent == "don't") return;
     firstOperand = display.textContent.valueOf();
     console.log(firstOperand);
     currentOperation = operator;
@@ -36,7 +39,8 @@ function setOperation(operator) {
 }
 function calculate() {
     if (currentOperation == null || display.textContent == "") return;
-    if (currentOperation == '÷') display.textContent = "don't";
+    if (currentOperation == '÷' && display.textContent.valueOf() == 0) return display.textContent = "don't";
+    if (display.textContent == "don't") return;
     secondOperand = display.textContent.valueOf();
     display.textContent = operate(currentOperation, firstOperand, secondOperand);
     currentOperation = null;
