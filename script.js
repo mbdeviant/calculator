@@ -16,7 +16,7 @@ numberButtons.forEach(function (button) {
     });
 });
 operatorButtons.forEach(function(button){
-    button.addEventListener('click', ()=> console.log("patates"));
+    button.addEventListener('click', ()=> console.log("patates"))
 })
 
 const inputs = {
