@@ -7,6 +7,7 @@ const btnEquals = document.getElementById("equals");
 btnUndo.addEventListener('click', () => {
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
+btnEquals.addEventListener('click', calculate);
 numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
         if (display.textContent.length >= 10) {
@@ -15,18 +16,34 @@ numberButtons.forEach(function (button) {
         display.textContent += button.value;
     });
 });
-operatorButtons.forEach(function(button){
-    button.addEventListener('click', ()=> console.log("patates"))
-})
+operatorButtons.forEach(function (button) {
+    button.addEventListener('click', () => setOperation(button.textContent));
+});
 
-const inputs = {
-    firstOperand: null,
-    operator: null,
-    secondOperand: null,
-};
+//can not divide, there's a bug
 
 
-function operate(a, operator, b) {
+let firstOperand = '';
+let currentOperation = null;
+let secondOperand = '';
+
+function setOperation(operator) {
+    if (currentOperation != null) calculate();
+    firstOperand = display.textContent.valueOf();
+    console.log(firstOperand);
+    currentOperation = operator;
+    display.textContent = "";
+}
+function calculate() {
+    if (currentOperation == null || display.textContent == "") return;
+    if (currentOperation == '÷') display.textContent = "don't";
+    secondOperand = display.textContent.valueOf();
+    display.textContent = operate(currentOperation, firstOperand, secondOperand);
+    currentOperation = null;
+
+}
+
+function operate(operator, a, b) {
     a = Number(a);
     b = Number(b);
     switch (operator) {
