@@ -50,10 +50,14 @@ body {
     align-items: center;
 }
 #previous-operations{
+    display: flex;
     width: 450px;
-    align-self: flex-start;
     height: 40px;
     background-color: gold;
+    font-size: 25px;
+    font-weight: 500;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .btn-container {

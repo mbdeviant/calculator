@@ -1,4 +1,5 @@
 const display = document.getElementById("display");             //add display to previous operations
+const previousOperations = document.getElementById("previous-operations");
 const btnUndo = document.getElementById("undo");
 const btnDot = document.getElementById("dot");
 const btnSign = document.getElementById("sign");
@@ -11,7 +12,7 @@ let currentOperation = null;
 let secondOperand = '';
 
 btnUndo.addEventListener('click', () => {
-    if (display.textContent == "don't") {
+    if (display.textContent == "don't" || display.textContent == "Infinity") {
         currentOperation = null;
         display.textContent = "";
     }
@@ -25,17 +26,16 @@ btnDot.addEventListener('mousedown', () => {
     if(display.textContent.includes(".")){
         btnDot.disabled = true;
     }
-    
 });
 operatorButtons.forEach(function (button) {
+    button.addEventListener('click',()=> {
+        
+    })
     button.addEventListener('click', () => setOperation(button.textContent)); // multiple click on any operator messes with the calculator, fix 
 });
 numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
-        if (display.textContent == "don't") return;
-        if (display.textContent.length >= 10) {
-            display.textContent = display.textContent.slice(0, 10);    //when the number has more than 10 digits, calculator does not work properly, slice causing it, fix
-        }
+        if (display.textContent == "don't") return;  //when the number has more than 10 digits, calculator does not work properly, make the container grow accordingly
         if (!display.textContent.includes('.')) btnDot.disabled = false;
         display.textContent += button.value;
     });
@@ -44,13 +44,15 @@ numberButtons.forEach(function (button) {
 btnEquals.addEventListener('click', calculate);
 
 function setOperation(operator) {
-    if (currentOperation != null) calculate();
-    if (display.textContent == "don't") return;
-    if (display.textContent == "-") return;
+    if (currentOperation !== null) calculate();
+    if (display.textContent == "don't" || display.textContent == "-" || display.textContent == "") return;
+    
     firstOperand = display.textContent.valueOf();
     console.log(firstOperand);
     currentOperation = operator;
     display.textContent = "";
+    previousOperations.textContent = `${firstOperand} ${currentOperation}`
+    
 }
 function calculate() {
     if (currentOperation == null || display.textContent == "") return;
@@ -58,8 +60,9 @@ function calculate() {
     if (display.textContent == "don't") return;
     secondOperand = display.textContent.valueOf();
     display.textContent = operate(currentOperation, firstOperand, secondOperand);
+    previousOperations.textContent += " " + secondOperand;
     currentOperation = null;
-
+    
 }
 function operate(operator, a, b) {
     a = Number(a);
