@@ -17,16 +17,19 @@ numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
         if (display.textContent == "don't") return;
         if (display.textContent.length >= 10) {
-            display.textContent = display.textContent.slice(0, 9);
+            display.textContent = display.textContent.slice(0, 10);
         }
+        if(!display.textContent.includes('.')) btnDot.disabled = false;
         display.textContent += button.value;
     });
 });
 operatorButtons.forEach(function (button) {
     button.addEventListener('click', () => setOperation(button.textContent));
 });
+btnDot.addEventListener('click', ()=>{
+    if(display.textContent.includes('.')) btnDot.disabled = true;
+});
 
-//fix the bug with dot, do not let user use multiple dots
 
 
 let firstOperand = '';
