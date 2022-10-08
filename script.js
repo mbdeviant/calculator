@@ -15,24 +15,26 @@ btnUndo.addEventListener('click', () => {
         currentOperation = null;
         display.textContent = "";
     }
-
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
 btnSign.addEventListener('click', () => {
     if (display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
     display.textContent = display.textContent.toString();
 });
-btnDot.addEventListener('click', () => {
-    if (display.textContent.includes('.')) btnDot.disabled = true;
+btnDot.addEventListener('mousedown', () => {
+    if(display.textContent.includes(".")){
+        btnDot.disabled = true;
+    }
+    
 });
 operatorButtons.forEach(function (button) {
-    button.addEventListener('click', () => setOperation(button.textContent));
+    button.addEventListener('click', () => setOperation(button.textContent)); // multiple click on any operator messes with the calculator, fix 
 });
 numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
         if (display.textContent == "don't") return;
         if (display.textContent.length >= 10) {
-            display.textContent = display.textContent.slice(0, 10);
+            display.textContent = display.textContent.slice(0, 10);    //when the number has more than 10 digits, calculator does not work properly, slice causing it, fix
         }
         if (!display.textContent.includes('.')) btnDot.disabled = false;
         display.textContent += button.value;
