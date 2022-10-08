@@ -1,6 +1,7 @@
 const display = document.getElementById("display");
 const btnUndo = document.getElementById("undo");
 const btnDot = document.getElementById("dot");
+const btnSign = document.getElementById("sign");
 const numberButtons = document.querySelectorAll('button');
 const operatorButtons = document.querySelectorAll('[data-operator]');
 const btnEquals = document.getElementById("equals");
@@ -12,7 +13,12 @@ btnUndo.addEventListener('click', () => {
     }
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
-btnEquals.addEventListener('click', calculate);
+btnDot.addEventListener('click', ()=>{
+    if(display.textContent.includes('.')) btnDot.disabled = true;
+});
+operatorButtons.forEach(function (button) {
+    button.addEventListener('click', () => setOperation(button.textContent));
+});
 numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
         if (display.textContent == "don't") return;
@@ -23,12 +29,7 @@ numberButtons.forEach(function (button) {
         display.textContent += button.value;
     });
 });
-operatorButtons.forEach(function (button) {
-    button.addEventListener('click', () => setOperation(button.textContent));
-});
-btnDot.addEventListener('click', ()=>{
-    if(display.textContent.includes('.')) btnDot.disabled = true;
-});
+btnEquals.addEventListener('click', calculate);
 
 
 
