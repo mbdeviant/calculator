@@ -6,7 +6,10 @@ const operatorButtons = document.querySelectorAll('[data-operator]');
 const btnEquals = document.getElementById("equals");
 
 btnUndo.addEventListener('click', () => {
-    if (display.textContent == "don't") return display.textContent = "";
+    if (display.textContent == "don't"){
+        currentOperation = null;
+        display.textContent = "";
+    }
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
 btnEquals.addEventListener('click', calculate);
