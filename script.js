@@ -20,7 +20,7 @@ btnUndo.addEventListener('click', () => {
 });
 btnSign.addEventListener('click', () => {
     if (display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
-    display.textContent = display.textContent.toString();
+
 });
 btnDot.addEventListener('mousedown', () => {
     if (display.textContent.includes(".")) {
@@ -43,7 +43,7 @@ btnEquals.addEventListener('click', calculate);
 function setOperation(operator) {
     if (currentOperation !== null) calculate();
     if (display.textContent == "don't" || display.textContent == "-") return;
-    if(display.textContent != ""){
+    if (display.textContent != "") {
         firstOperand = display.textContent.valueOf();
     }
     console.log(firstOperand);
