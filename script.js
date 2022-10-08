@@ -1,4 +1,4 @@
-const display = document.getElementById("display");
+const display = document.getElementById("display");             //add display to previous operations
 const btnUndo = document.getElementById("undo");
 const btnDot = document.getElementById("dot");
 const btnSign = document.getElementById("sign");

@@ -40,8 +40,7 @@ body {
 }
 
 #display {
-    display: flex;
-    margin-top: 15px;
+    display: flex;   
     width: 450px;
     height: 100px;
     background-color: gray;
@@ -50,14 +49,20 @@ body {
     justify-content: flex-end;
     align-items: center;
 }
+#previous-operations{
+    width: 450px;
+    align-self: flex-start;
+    height: 40px;
+    background-color: gold;
+}
 
 .btn-container {
     display: flex;
-    gap: 8px;
+    gap: 4px;
     width: 440px;
     height: auto;
 }
 
 .button.zero {
-    flex-grow: 4;
+    flex-grow: 3.7;
 }
