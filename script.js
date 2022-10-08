@@ -6,15 +6,21 @@ const numberButtons = document.querySelectorAll('button');
 const operatorButtons = document.querySelectorAll('[data-operator]');
 const btnEquals = document.getElementById("equals");
 
+let firstOperand = '';
+let currentOperation = null;
+let secondOperand = '';
+
 btnUndo.addEventListener('click', () => {
     if (display.textContent == "don't") {
         currentOperation = null;
         display.textContent = "";
     }
+
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
-btnSign.addEventListener('click', ()=>{
-    if(display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
+btnSign.addEventListener('click', () => {
+    if (display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
+    display.textContent = display.textContent.toString();
 });
 btnDot.addEventListener('click', () => {
     if (display.textContent.includes('.')) btnDot.disabled = true;
@@ -32,17 +38,13 @@ numberButtons.forEach(function (button) {
         display.textContent += button.value;
     });
 });
+
 btnEquals.addEventListener('click', calculate);
-
-
-
-let firstOperand = '';
-let currentOperation = null;
-let secondOperand = '';
 
 function setOperation(operator) {
     if (currentOperation != null) calculate();
     if (display.textContent == "don't") return;
+    if (display.textContent == "-") return;
     firstOperand = display.textContent.valueOf();
     console.log(firstOperand);
     currentOperation = operator;
@@ -57,7 +59,6 @@ function calculate() {
     currentOperation = null;
 
 }
-
 function operate(operator, a, b) {
     a = Number(a);
     b = Number(b);
