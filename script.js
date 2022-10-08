@@ -28,7 +28,7 @@ btnDot.addEventListener('mousedown', () => {
     }
 });
 operatorButtons.forEach(function (button) {
-    button.addEventListener('click', () => setOperation(button.textContent)); // multiple click on any operator messes with the calculator, fix 
+    button.addEventListener('click', () => setOperation(button.textContent));
 });
 numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
@@ -42,8 +42,10 @@ btnEquals.addEventListener('click', calculate);
 
 function setOperation(operator) {
     if (currentOperation !== null) calculate();
-    if (display.textContent == "don't" || display.textContent == "-" || display.textContent == "") return;
-    firstOperand = display.textContent.valueOf();
+    if (display.textContent == "don't" || display.textContent == "-") return;
+    if(display.textContent != ""){
+        firstOperand = display.textContent.valueOf();
+    }
     console.log(firstOperand);
     currentOperation = operator;
     display.textContent = "";
