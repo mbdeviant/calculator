@@ -7,14 +7,17 @@ const operatorButtons = document.querySelectorAll('[data-operator]');
 const btnEquals = document.getElementById("equals");
 
 btnUndo.addEventListener('click', () => {
-    if (display.textContent == "don't"){
+    if (display.textContent == "don't") {
         currentOperation = null;
         display.textContent = "";
     }
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
-btnDot.addEventListener('click', ()=>{
-    if(display.textContent.includes('.')) btnDot.disabled = true;
+btnSign.addEventListener('click', ()=>{
+    if(display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
+});
+btnDot.addEventListener('click', () => {
+    if (display.textContent.includes('.')) btnDot.disabled = true;
 });
 operatorButtons.forEach(function (button) {
     button.addEventListener('click', () => setOperation(button.textContent));
@@ -25,7 +28,7 @@ numberButtons.forEach(function (button) {
         if (display.textContent.length >= 10) {
             display.textContent = display.textContent.slice(0, 10);
         }
-        if(!display.textContent.includes('.')) btnDot.disabled = false;
+        if (!display.textContent.includes('.')) btnDot.disabled = false;
         display.textContent += button.value;
     });
 });
