@@ -20,7 +20,6 @@ btnUndo.addEventListener('click', () => {
 });
 btnSign.addEventListener('click', () => {
     if (display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
-
 });
 btnDot.addEventListener('mousedown', () => {
     if (display.textContent.includes(".")) {
@@ -34,27 +33,24 @@ numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
         if (display.textContent == "don't") return;  //when the number has more than 10 digits, calculator does not work properly, make the container grow accordingly
         if (!display.textContent.includes('.')) btnDot.disabled = false;
+        if (display.textContent.length >= 13) display.textContent = display.textContent.slice(0,12);
         display.textContent += button.value;
     });
 });
 
 btnEquals.addEventListener('click', calculate);
-
 function setOperation(operator) {
     if (currentOperation !== null) calculate();
     if (display.textContent == "don't" || display.textContent == "-") return;
-    if (display.textContent != "") {
-        firstOperand = display.textContent.valueOf();
-    }
+    if (display.textContent != "") firstOperand = display.textContent.valueOf();
     console.log(firstOperand);
     currentOperation = operator;
     display.textContent = "";
     previousOperations.textContent = `${firstOperand} ${currentOperation}`
 }
 function calculate() {
-    if (currentOperation == null || display.textContent == "") return;
+    if (currentOperation == null || display.textContent == "" || display.textContent == "don't") return;
     if (currentOperation == '÷' && display.textContent.valueOf() == 0) return display.textContent = "don't";
-    if (display.textContent == "don't") return;
     secondOperand = display.textContent.valueOf();
     display.textContent = operate(currentOperation, firstOperand, secondOperand);
     previousOperations.textContent += " " + secondOperand;
