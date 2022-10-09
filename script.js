@@ -19,11 +19,11 @@ btnUndo.addEventListener('click', () => {
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
 btnSign.addEventListener('click', () => {
-    if(display.textContent == "don't") return;
+    if (display.textContent == "don't") return;
     if (display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
 });
 btnDot.addEventListener('mousedown', () => {
-    if (display.textContent.includes(".")) btnDot.disabled = true; 
+    if (display.textContent.includes(".")) btnDot.disabled = true;
 });
 operatorButtons.forEach(function (button) {
     button.addEventListener('click', () => setOperation(button.textContent));
@@ -32,9 +32,13 @@ numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
         if (display.textContent == "don't") return;
         if (!display.textContent.includes('.')) btnDot.disabled = false;
-        if (display.textContent.length >= 13) display.textContent = display.textContent.slice(0,12);
-        if(previousOperations.textContent.length >=15) display.style.minHeight = "200px";
-        if(previousOperations.textContent.length <=13) display.style.minHeight = "100px";
+        if (display.textContent.length >= 13) display.textContent = display.textContent.slice(0, 12);
+        if (previousOperations.textContent.length >= 15) display.style.minHeight = "200px";
+        if (previousOperations.textContent.length <= 13) display.style.minHeight = "100px";
+        if(firstOperand == '' && currentOperation != null){
+            previousOperations.textContent = "";
+            currentOperation = null;
+        }
         display.textContent += button.value;
     });
 });
@@ -42,10 +46,11 @@ btnEquals.addEventListener('click', calculate);
 
 function setOperation(operator) {
     if (currentOperation !== null) calculate();
-    if (display.textContent == "don't" || display.textContent == "-" || display.textContent == "") return;
+    if (display.textContent == "don't" || display.textContent == "-") return;
     if (display.textContent != "") firstOperand = display.textContent.valueOf();
     console.log(firstOperand);
     currentOperation = operator;
+
     display.textContent = "";
     previousOperations.textContent = `${firstOperand} ${currentOperation}`
 }
