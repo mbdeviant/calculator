@@ -39,29 +39,35 @@ body {
     flex-grow: 1;
 }
 
-#display {
-    display: flex;   
+#display { 
     width: 450px;
-    height: 100px;
+    min-height: 100px;
     background-color: gray;
-    font-size: 75px;
+    font-size: 65px;
     font-weight: bold;
-    justify-content: flex-end;
-    align-items: center;
+    text-align: right;
+    vertical-align:middle;
+    line-height: 100px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
-#previous-operations{
-    display: flex;
+
+#previous-operations {
     width: 450px;
     height: 40px;
     background-color: gold;
     font-size: 25px;
     font-weight: 500;
-    justify-content: flex-end;
-    align-items: center;
+    text-align: right;
+    vertical-align:middle;
+    line-height: 40px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .btn-container {
     display: flex;
+    flex-shrink: 0;
     gap: 4px;
     width: 440px;
     height: auto;
