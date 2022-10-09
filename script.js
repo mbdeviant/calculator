@@ -13,6 +13,7 @@ let secondOperand = '';
 
 btnUndo.addEventListener('click', () => {
     if (display.textContent == "don't" || display.textContent == "Infinity") {
+        previousOperations.textContent = "";
         currentOperation = null;
         display.textContent = "";
     }
@@ -32,9 +33,9 @@ numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
         if (display.textContent == "don't" || display.textContent == "Infinity") return;
         if (!display.textContent.includes('.')) btnDot.disabled = false;
-        if (display.textContent.length >= 13) display.textContent = display.textContent.slice(0, 12);
+        if (display.textContent.length >= 15) display.textContent = display.textContent.slice(0, 15);
         if (previousOperations.textContent.length >= 15) display.style.minHeight = "200px";
-        if (previousOperations.textContent.length <= 13) display.style.minHeight = "100px";
+        if (previousOperations.textContent.length <= 14) display.style.minHeight = "100px";
         if (firstOperand == '' && currentOperation != null) {
             previousOperations.textContent = "";
             currentOperation = null;
