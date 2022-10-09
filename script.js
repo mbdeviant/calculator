@@ -19,7 +19,7 @@ btnUndo.addEventListener('click', () => {
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
 btnSign.addEventListener('click', () => {
-    if (display.textContent == "don't" || display.textContent == "Infinity") return;
+    if (display.textContent == "don't" || display.textContent == "Infinity" || display.textContent == ".") return;
     if (display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
 });
 btnDot.addEventListener('mousedown', () => {
@@ -46,7 +46,7 @@ btnEquals.addEventListener('click', calculate);
 
 function setOperation(operator) {
     if (currentOperation !== null) calculate();
-    if (display.textContent == "don't" || display.textContent == "-") return;
+    if (display.textContent == "don't" || display.textContent == "-" || display.textContent == ".") return;
     if (display.textContent != "") firstOperand = display.textContent.valueOf();
     console.log(firstOperand);
     currentOperation = operator;
@@ -55,7 +55,7 @@ function setOperation(operator) {
     previousOperations.textContent = `${firstOperand} ${currentOperation}`
 }
 function calculate() {
-    if (currentOperation == null || display.textContent == "" || display.textContent == "don't" || display.textContent == "Infinity") return;
+    if (currentOperation == null || display.textContent == "" || display.textContent == "don't" || display.textContent == "Infinity" || display.textContent == ".") return;
     if (currentOperation == '÷' && display.textContent.valueOf() == 0) return display.textContent = "don't";
     secondOperand = display.textContent.valueOf();
     display.textContent = operate(currentOperation, firstOperand, secondOperand);
