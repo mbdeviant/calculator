@@ -42,7 +42,7 @@ btnEquals.addEventListener('click', calculate);
 
 function setOperation(operator) {
     if (currentOperation !== null) calculate();
-    if (display.textContent == "don't" || display.textContent == "-") return;
+    if (display.textContent == "don't" || display.textContent == "-" || display.textContent == "") return;
     if (display.textContent != "") firstOperand = display.textContent.valueOf();
     console.log(firstOperand);
     currentOperation = operator;
