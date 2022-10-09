@@ -33,6 +33,8 @@ numberButtons.forEach(function (button) {
         if (display.textContent == "don't") return;
         if (!display.textContent.includes('.')) btnDot.disabled = false;
         if (display.textContent.length >= 13) display.textContent = display.textContent.slice(0,12);
+        if(previousOperations.textContent.length >=15) display.style.minHeight = "200px";
+        if(previousOperations.textContent.length <=13) display.style.minHeight = "100px";
         display.textContent += button.value;
     });
 });
