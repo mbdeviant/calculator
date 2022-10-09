@@ -19,26 +19,25 @@ btnUndo.addEventListener('click', () => {
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
 btnSign.addEventListener('click', () => {
+    if(display.textContent == "don't") return;
     if (display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
 });
 btnDot.addEventListener('mousedown', () => {
-    if (display.textContent.includes(".")) {
-        btnDot.disabled = true;
-    }
+    if (display.textContent.includes(".")) btnDot.disabled = true; 
 });
 operatorButtons.forEach(function (button) {
     button.addEventListener('click', () => setOperation(button.textContent));
 });
 numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
-        if (display.textContent == "don't") return;  //when the number has more than 10 digits, calculator does not work properly, make the container grow accordingly
+        if (display.textContent == "don't") return;
         if (!display.textContent.includes('.')) btnDot.disabled = false;
         if (display.textContent.length >= 13) display.textContent = display.textContent.slice(0,12);
         display.textContent += button.value;
     });
 });
-
 btnEquals.addEventListener('click', calculate);
+
 function setOperation(operator) {
     if (currentOperation !== null) calculate();
     if (display.textContent == "don't" || display.textContent == "-") return;
