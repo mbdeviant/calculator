@@ -9,16 +9,10 @@ const btnEquals = document.getElementById("equals");
 
 let firstOperand = '';
 let currentOperation = null;
+let potato = undefined;
 let secondOperand = '';
 
-btnUndo.addEventListener('click', () => {
-    if (display.textContent == "don't" || display.textContent == "Infinity") {
-        previousOperations.textContent = "";
-        currentOperation = null;
-        display.textContent = "";
-    }
-    display.textContent = display.textContent.substring(0, display.textContent.length - 1);
-});
+btnUndo.addEventListener('click', undo);
 btnSign.addEventListener('click', () => {
     if (display.textContent == "don't" || display.textContent == "Infinity" || display.textContent == ".") return;
     if (display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
@@ -33,9 +27,6 @@ numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
         if (display.textContent == "don't" || display.textContent == "Infinity") return;
         if (!display.textContent.includes('.')) btnDot.disabled = false;
-        if (display.textContent.length >= 15) display.textContent = display.textContent.slice(0, 15);
-        if (previousOperations.textContent.length >= 15) display.style.minHeight = "200px";
-        if (previousOperations.textContent.length <= 14) display.style.minHeight = "100px";
         if (firstOperand == '' && currentOperation != null) {
             previousOperations.textContent = "";
             currentOperation = null;
@@ -51,7 +42,6 @@ function setOperation(operator) {
     if (display.textContent != "") firstOperand = display.textContent.valueOf();
     console.log(firstOperand);
     currentOperation = operator;
-
     display.textContent = "";
     previousOperations.textContent = `${firstOperand} ${currentOperation}`
 }
@@ -91,3 +81,62 @@ function multiply(a, b) {
 function divide(a, b) {
     return parseFloat((a / b).toFixed(1));
 }
+function undo(){
+    if (display.textContent == "don't" || display.textContent == "Infinity") {
+        previousOperations.textContent = "";
+        currentOperation = null;
+        display.textContent = "";
+    }
+    display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+}
+function checkDisplay() {
+    if (display.textContent == "don't" || display.textContent == "Infinity"){
+        display.textContent = "";
+        previousOperations.textContent = ""
+    }
+}
+document.addEventListener('keydown', (e) => {
+    console.log(e.key);
+    switch (e.key) {
+        case '1':
+            checkDisplay();
+            display.textContent += e.key;
+            return;
+        case '2':
+            checkDisplay();
+            display.textContent += e.key;
+            return;
+        case '3':
+            checkDisplay();
+            display.textContent += e.key;
+            return;
+        case '4':
+            checkDisplay();
+            display.textContent += e.key;
+            return;
+        case '5':
+            checkDisplay();
+            display.textContent += e.key;
+            return;
+        case '6':
+            checkDisplay();
+            display.textContent += e.key;
+            return;
+        case '7':
+            checkDisplay();
+            display.textContent += e.key;
+            return;
+        case '8':
+            checkDisplay();
+            display.textContent += e.key;
+            return;
+        case '9':
+            checkDisplay();
+            display.textContent += e.key;
+            return;
+        case '0':
+            checkDisplay();
+            display.textContent += e.key;
+            return;
+    }
+});
