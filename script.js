@@ -1,4 +1,4 @@
-const display = document.getElementById("display");             //add display to previous operations
+const display = document.getElementById("display");
 const previousOperations = document.getElementById("previous-operations");
 const btnUndo = document.getElementById("undo");
 const btnDot = document.getElementById("dot");
@@ -80,7 +80,7 @@ function multiply(a, b) {
 function divide(a, b) {
     return parseFloat((a / b).toFixed(1));
 }
-function undo(){
+function undo() {
     if (display.textContent == "don't" || display.textContent == "Infinity") {
         previousOperations.textContent = "";
         currentOperation = null;
@@ -89,7 +89,7 @@ function undo(){
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 }
 function checkDisplay() {
-    if (display.textContent == "don't" || display.textContent == "Infinity"){
+    if (display.textContent == "don't" || display.textContent == "Infinity") {
         display.textContent = "";
         previousOperations.textContent = ""
         firstOperand = '';
@@ -168,3 +168,4 @@ document.addEventListener('keydown', (e) => {
             return;
     }
 });
+//working as expected but still has a lot of issues, debug
