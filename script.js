@@ -25,8 +25,7 @@ operatorButtons.forEach(function (button) {
 });
 numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
-        if (display.textContent == "don't" || display.textContent == "Infinity") return;
-        if (!display.textContent.includes('.')) btnDot.disabled = false;
+        checkDisplay();
         if (firstOperand == '' && currentOperation != null) {
             previousOperations.textContent = "";
             currentOperation = null;
@@ -94,6 +93,7 @@ function checkDisplay() {
         display.textContent = "";
         previousOperations.textContent = ""
     }
+    if (!display.textContent.includes('.')) btnDot.disabled = false;
 }
 document.addEventListener('keydown', (e) => {
     console.log(e.key);
@@ -137,6 +137,12 @@ document.addEventListener('keydown', (e) => {
         case '0':
             checkDisplay();
             display.textContent += e.key;
+            return;
+        case 'Backspace':
+            undo();
+            return;
+        case 'Delete':
+            window.location.reload();
             return;
     }
 });
