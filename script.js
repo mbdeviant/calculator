@@ -92,6 +92,7 @@ function checkDisplay() {
     if (display.textContent == "don't" || display.textContent == "Infinity"){
         display.textContent = "";
         previousOperations.textContent = ""
+        firstOperand = '';
     }
     if (!display.textContent.includes('.')) btnDot.disabled = false;
 }
@@ -139,10 +140,31 @@ document.addEventListener('keydown', (e) => {
             display.textContent += e.key;
             return;
         case 'Backspace':
+            checkDisplay();
             undo();
             return;
         case 'Delete':
             window.location.reload();
+            return;
+        case '+':
+            checkDisplay();
+            setOperation(e.key);
+            return;
+        case '-':
+            checkDisplay();
+            setOperation(e.key);
+            return;
+        case '*':
+            checkDisplay();
+            setOperation('x');
+            return;
+        case '/':
+            checkDisplay();
+            setOperation('÷');
+            return;
+        case 'Enter':
+            checkDisplay();
+            calculate();
             return;
     }
 });
