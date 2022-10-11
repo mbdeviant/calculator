@@ -27,6 +27,9 @@ body {
     align-items: center;
     justify-content: center;
 }
+.numbers:hover{
+
+}
 
 .button {
     border-radius: 12px;
@@ -96,6 +99,7 @@ body {
 }
 .button:hover{
     background-color: rgb(182, 182, 182);
+    cursor:pointer;
 }
 
 #clear-button:hover
