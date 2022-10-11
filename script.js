@@ -14,10 +14,10 @@ let secondOperand = '';
 //if display is "-", disable dot >>
 //with numpad, if display is empty, dont let the currentoperator take value
 //if display is empty, dont type zero more than once
-//after dont screen, reset the first operand value
+//after dont screen, reset the first operand value >>
 btnUndo.addEventListener('click', undo);
 btnSign.addEventListener('click', () => {
-    if (display.textContent == "don't" || display.textContent == "Infinity" || display.textContent == ".") return;
+    if (display.textContent == "don't" || display.textContent == "Infinity" || display.textContent == "." || display.textContent == "-") return;
     if (display.textContent != "") display.textContent = parseFloat(display.textContent * -1);
 });
 btnDot.addEventListener('mousedown', () => {
@@ -32,11 +32,11 @@ operatorButtons.forEach(function (button) {
 numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
         checkDisplay();
-
         display.textContent += button.value;
     });
 });
 btnEquals.addEventListener('click', calculate);
+
 function setOperation(operator) {
     if (currentOperation !== null) calculate();
     if (display.textContent == "don't" || display.textContent == "-" || display.textContent == ".") return;
