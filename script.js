@@ -145,7 +145,7 @@ document.addEventListener('keydown', (e) => {
             return;
         case '0':
             checkDisplay();
-            if (display.textContent == "") return;
+            if (display.textContent == "0") return;
             display.textContent += e.key;
             return;
         case 'Backspace':
