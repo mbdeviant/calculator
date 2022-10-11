@@ -11,7 +11,10 @@ let firstOperand = '';
 let currentOperation = null;
 let potato = undefined;
 let secondOperand = '';
-
+//if display is "-", disable dot >>
+//with numpad, if display is empty, dont let the currentoperator take value
+//if display is empty, dont type zero more than once
+//after dont screen, reset the first operand value
 btnUndo.addEventListener('click', undo);
 btnSign.addEventListener('click', () => {
     if (display.textContent == "don't" || display.textContent == "Infinity" || display.textContent == ".") return;
@@ -20,21 +23,20 @@ btnSign.addEventListener('click', () => {
 btnDot.addEventListener('mousedown', () => {
     if (display.textContent.includes(".")) btnDot.disabled = true;
 });
+btnDot.addEventListener('mouseover', () => {
+    if (display.textContent == "-") btnDot.disabled = true;
+})
 operatorButtons.forEach(function (button) {
     button.addEventListener('click', () => setOperation(button.textContent));
 });
 numberButtons.forEach(function (button) {
     button.addEventListener('click', () => {
         checkDisplay();
-        if (firstOperand == '' && currentOperation != null) {
-            previousOperations.textContent = "";
-            currentOperation = null;
-        }
+
         display.textContent += button.value;
     });
 });
 btnEquals.addEventListener('click', calculate);
-
 function setOperation(operator) {
     if (currentOperation !== null) calculate();
     if (display.textContent == "don't" || display.textContent == "-" || display.textContent == ".") return;
@@ -51,6 +53,27 @@ function calculate() {
     display.textContent = operate(currentOperation, firstOperand, secondOperand);
     previousOperations.textContent += " " + secondOperand;
     currentOperation = null;
+}
+function undo() {
+    if (display.textContent == "don't" || display.textContent == "Infinity") {
+        previousOperations.textContent = "";
+        currentOperation = null;
+        firstOperand = '';
+        display.textContent = "";
+    }
+    display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+}
+function checkDisplay() {
+    if (firstOperand == '' && currentOperation != null) {
+        previousOperations.textContent = "";
+        currentOperation = null;
+    }
+    if (display.textContent == "don't" || display.textContent == "Infinity") {
+        display.textContent = "";
+        previousOperations.textContent = ""
+        firstOperand = '';
+    }
+    if (!display.textContent.includes('.')) btnDot.disabled = false;
 }
 function operate(operator, a, b) {
     a = Number(a);
@@ -80,22 +103,7 @@ function multiply(a, b) {
 function divide(a, b) {
     return parseFloat((a / b).toFixed(1));
 }
-function undo() {
-    if (display.textContent == "don't" || display.textContent == "Infinity") {
-        previousOperations.textContent = "";
-        currentOperation = null;
-        display.textContent = "";
-    }
-    display.textContent = display.textContent.substring(0, display.textContent.length - 1);
-}
-function checkDisplay() {
-    if (display.textContent == "don't" || display.textContent == "Infinity") {
-        display.textContent = "";
-        previousOperations.textContent = ""
-        firstOperand = '';
-    }
-    if (!display.textContent.includes('.')) btnDot.disabled = false;
-}
+
 document.addEventListener('keydown', (e) => {
     console.log(e.key);
     switch (e.key) {
