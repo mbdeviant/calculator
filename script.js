@@ -25,7 +25,7 @@ btnDot.addEventListener('mousedown', () => {
 });
 btnDot.addEventListener('mouseover', () => {
     if (display.textContent == "-") btnDot.disabled = true;
-})
+});
 operatorButtons.forEach(function (button) {
     button.addEventListener('click', () => setOperation(button.textContent));
 });
@@ -145,6 +145,7 @@ document.addEventListener('keydown', (e) => {
             return;
         case '0':
             checkDisplay();
+            if (display.textContent == "") return;
             display.textContent += e.key;
             return;
         case 'Backspace':
