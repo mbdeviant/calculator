@@ -9,12 +9,8 @@ const btnEquals = document.getElementById("equals");
 
 let firstOperand = '';
 let currentOperation = null;
-let potato = undefined;
 let secondOperand = '';
-//if display is "-", disable dot >>
-//with numpad, if display is empty, dont let the currentoperator take value
-//if display is empty, dont type zero more than once
-//after dont screen, reset the first operand value >>
+//if display is empty, dont type zero more than once on click/
 btnUndo.addEventListener('click', undo);
 btnSign.addEventListener('click', () => {
     if (display.textContent == "don't" || display.textContent == "Infinity" || display.textContent == "." || display.textContent == "-") return;
@@ -68,7 +64,7 @@ function checkDisplay() {
         previousOperations.textContent = "";
         currentOperation = null;
     }
-    if (display.textContent == "don't" || display.textContent == "Infinity") {
+    if (display.textContent == "don't" || display.textContent == "Infinity" || display.textContent == "-Infinity") {
         display.textContent = "";
         previousOperations.textContent = ""
         firstOperand = '';
