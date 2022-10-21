@@ -100,7 +100,6 @@ function divide(a, b) {
 }
 
 document.addEventListener('keydown', (e) => {
-    console.log(e.key);
     switch (e.key) {
         case '1':
             checkDisplay();
