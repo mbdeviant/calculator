@@ -171,4 +171,3 @@ document.addEventListener('keydown', (e) => {
             return;
     }
 });
-//working as expected but still has a lot of issues, debug
