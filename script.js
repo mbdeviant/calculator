@@ -10,7 +10,7 @@ const btnEquals = document.getElementById("equals");
 let firstOperand = '';
 let currentOperation = null;
 let secondOperand = '';
-//if display is empty, dont type zero more than once on click/
+
 btnUndo.addEventListener('click', undo);
 btnSign.addEventListener('click', () => {
     if (display.textContent == "don't" || display.textContent == "Infinity" || display.textContent == "." || display.textContent == "-") return;
